@@ -1,0 +1,55 @@
+ /*
+    version.h - version details for text-to-cw
+    Copyright (C) 2022, 2023, 2024  Thomas Cort
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, see <https://www.gnu.org/licenses/>.
+
+    SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
+#ifndef TEXT_TO_CW_VERSION_H
+#define TEXT_TO_CW_VERSION_H
+
+/*
+ * name of the project (e.g. "libtc")
+ */
+#define TEXT_TO_CW_VERSION_NAME "@PROJECT_NAME@"
+
+/*
+ * version string of the project (e.g. "2022, 2023, 2024")
+ */
+#define TEXT_TO_CW_VERSION_STRING "@PROJECT_VERSION@"
+
+/*
+ * numeric version of the project (e.g. 2022, 2023, 2024)
+ */
+#define TEXT_TO_CW_VERSION_NUMBER @PROJECT_VERSION@
+
+/*
+ * name of the author (e.g. "Thomas Cort")
+ */
+#define TEXT_TO_CW_VERSION_AUTHOR "@PROJECT_AUTHOR@"
+
+/*
+ * copyright line (e.g. "Copyright (C) 2022, 2023, 2024  Thomas Cort")
+ */
+#define TEXT_TO_CW_VERSION_COPYRIGHT "@PROJECT_COPYRIGHT@"
+
+/*
+ * license lines (e.g. "GPLv3+...")
+ */
+#define TEXT_TO_CW_VERSION_LICENSE "@PROJECT_LICENSE@"
+
+
+#endif
