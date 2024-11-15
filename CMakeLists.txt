@@ -33,9 +33,29 @@ pkg_check_modules(FLAC REQUIRED flac)
 include_directories(${FLAC_INCLUDE_DIRS})
 link_directories(${FLAC_LIBRARY_DIRS})
 
+include(CheckFunctionExists)
+
+if(NOT SIN_FUNCTION_EXISTS AND NOT NEED_LINKING_AGAINST_LIBM)
+  CHECK_FUNCTION_EXISTS(sin SIN_FUNCTION_EXISTS)
+  if(NOT SIN_FUNCTION_EXISTS)
+      unset(SIN_FUNCTION_EXISTS CACHE)
+      list(APPEND CMAKE_REQUIRED_LIBRARIES m)
+      CHECK_FUNCTION_EXISTS(sin SIN_FUNCTION_EXISTS)
+      if(SIN_FUNCTION_EXISTS)
+          set(NEED_LINKING_AGAINST_LIBM True CACHE BOOL "" FORCE)
+      else()
+          message(FATAL_ERROR "Failed making the sin() function available")
+      endif()
+  endif()
+endif()
+
 file(GLOB SRC src/*.c)
 add_executable(text-to-cw ${SRC})
 target_link_libraries(text-to-cw ${FLAC_LIBRARIES})
+if (NEED_LINKING_AGAINST_LIBM)
+     target_link_libraries(text-to-cw m)
+endif()
+
 install(TARGETS text-to-cw DESTINATION bin)
 
 ## Packaging
