@@ -546,8 +546,8 @@ static void show_usage(FILE *out, int exit_code) {
 
 #define READSIZE (1024)
 
-static FLAC__byte buffer[READSIZE * (bps/8) * channels];
-static FLAC__int32 pcm[READSIZE * channels];
+static FLAC__byte buffer[READSIZE * (DEFAULT_BPS/8) * DEFAULT_CHANNELS];
+static FLAC__int32 pcm[READSIZE * DEFAULT_CHANNELS];
 
 void progress_callback(const FLAC__StreamEncoder *encoder, FLAC__uint64 bytes_written, FLAC__uint64 samples_written, unsigned frames_written, unsigned total_frames_estimate, void *client_data)
 {
