@@ -1,10 +1,11 @@
-# text-to-cw
+# text-to-morse
 
-converts text into a Morse code audio file.
+Converts text into a Morse code audio file.
 
 ## Description
 
-Accepts a text file as input and outputs an audio file in FLAC format.
+Accepts a text file as input and outputs an audio file in FLAC format
+containing the equivalent Morse code..
 
 ## Requirements
 
@@ -31,9 +32,9 @@ export PATH=${HOME}/bin:${PATH}
 
 ## Versioning and Releases
 
-`text-to-cw` releases once a year on July 1st. The version number corresponds
+`text-to-morse` releases once a year on July 1st. The version number corresponds
 to the year the software collection was released. For example, on July 1,
-2038, `text-to-cw` `v2038` will be released.
+2038, `text-to-morse` `v2038` will be released.
 
 ## Contributing
 

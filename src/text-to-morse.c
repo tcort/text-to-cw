@@ -1,5 +1,5 @@
  /*
-    text-to-cw -- converts text into a morse code audio file
+    text-to-morse -- converts text into a morse code audio file
     Copyright (C) 2022, 2023, 2024  Thomas Cort
 
     This program is free software; you can redistribute it and/or modify
@@ -501,13 +501,13 @@ static void write_character(unsigned char c) {
 }
 
 static void show_version(FILE *out, int exit_code) {
-	fprintf(out, "text-to-cw v%s\n", VERSION);
+	fprintf(out, "text-to-morse v%s\n", VERSION);
 	exit(exit_code);
 }
 
 static void show_usage(FILE *out, int exit_code) {
 
-	fprintf(out, "usage: text-to-cw INPUT.TXT OUTPUT.FLAC\n");
+	fprintf(out, "usage: text-to-morse INPUT.TXT OUTPUT.FLAC\n");
 	fprintf(out, "\n");
 	fprintf(out, "-f NUM                Farnsworth spacing words per minute. Default %d\n", DEFAULT_FWPM);
 	fprintf(out, "-h                    Display this help information and exit\n");

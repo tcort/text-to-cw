@@ -8,7 +8,7 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
 # project version MUST be an integer
-project(text-to-cw VERSION 2024 DESCRIPTION "a collection of software tools, utilities, and games" LANGUAGES C)
+project(text-to-morse VERSION 2024 DESCRIPTION "a collection of software tools, utilities, and games" LANGUAGES C)
 
 set(PROJECT_AUTHOR "Thomas Cort")
 set(PROJECT_COPYRIGHT "Copyright (C) 2022, 2023, 2024  Thomas Cort")
@@ -50,17 +50,17 @@ if(NOT SIN_FUNCTION_EXISTS AND NOT NEED_LINKING_AGAINST_LIBM)
 endif()
 
 file(GLOB SRC src/*.c)
-add_executable(text-to-cw ${SRC})
-target_link_libraries(text-to-cw ${FLAC_LIBRARIES})
+add_executable(text-to-morse ${SRC})
+target_link_libraries(text-to-morse ${FLAC_LIBRARIES})
 if (NEED_LINKING_AGAINST_LIBM)
-     target_link_libraries(text-to-cw m)
+     target_link_libraries(text-to-morse m)
 endif()
 
-install(TARGETS text-to-cw DESTINATION bin)
+install(TARGETS text-to-morse DESTINATION bin)
 
 ## Packaging
 
-set(CPACK_PACKAGE_NAME "text-to-cw")
+set(CPACK_PACKAGE_NAME "text-to-morse")
 set(CPACK_PACKAGE_VENDOR ${PROJECT_AUTHOR})
 set(CPACK_GENERATOR "") # platform defaults
 set(CPACK_SOURCE_GENERATOR "TGZ;TXZ;ZIP")
