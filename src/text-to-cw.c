@@ -549,13 +549,6 @@ static void show_usage(FILE *out, int exit_code) {
 static FLAC__byte buffer[READSIZE * (DEFAULT_BPS/8) * DEFAULT_CHANNELS];
 static FLAC__int32 pcm[READSIZE * DEFAULT_CHANNELS];
 
-void progress_callback(const FLAC__StreamEncoder *encoder, FLAC__uint64 bytes_written, FLAC__uint64 samples_written, unsigned frames_written, unsigned total_frames_estimate, void *client_data)
-{
-        (void)encoder, (void)client_data;
-
-        fprintf(stderr, "ENCODING: wrote %" PRIu64 " bytes, %" PRIu64 "/%zu samples, %u/%u frames\n", bytes_written, samples_written, total_samples, frames_written, total_frames_estimate);
-}
-
 static void encode_result(char *filepath) {
 
 	FILE *fin = NULL;
@@ -585,7 +578,7 @@ static void encode_result(char *filepath) {
 
         /* initialize encoder */
         if (ok) {
-                init_status = FLAC__stream_encoder_init_file(encoder, filepath, progress_callback, /*client_data=*/NULL);
+                init_status = FLAC__stream_encoder_init_file(encoder, filepath, /*progress_callback*/NULL, /*client_data=*/NULL);
                 if (init_status != FLAC__STREAM_ENCODER_INIT_STATUS_OK) {
                         fprintf(stderr, "ERROR: initializing encoder: %s\n", FLAC__StreamEncoderInitStatusString[init_status]);
                         ok = false;
@@ -700,7 +693,6 @@ int main(int argc, char *argv[]) {
 			write_inter_character_space();
 		}
 		write_character(ch);
-		fprintf(stdout, "Read Character: %d | Samples: %lu MB\n", i+1, (result_len*(bps/2)) / 1024 / 1024);
 	}
 
 	exit_tone();
